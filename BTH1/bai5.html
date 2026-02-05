@@ -1,0 +1,337 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>HR Management</title>
+
+    <style>
+      * {
+        box-sizing: border-box;
+        font-family: Arial, sans-serif;
+      }
+
+      body {
+        background: lightgray;
+        margin: 0;
+
+      }
+
+      .header {
+        background: black;
+        color: white;
+        padding: 12px 20px;
+        display: flex;
+        align-items: center;
+      }
+
+      .header h2 {
+        margin: 0;
+        font-size: 18px;
+      }
+
+      .nav {
+        margin-left: 30px;
+      }
+
+      .nav a {
+        color: silver;
+        text-decoration: none;
+        margin-right: 15px;
+        font-size: 14px;
+      }
+
+      .search {
+        margin-left: auto;
+      }
+
+      .search input {
+        padding: 5px;
+        border-radius: 5px;
+      }
+
+      .search button {
+        padding: 6px 10px;
+        background: black;
+        color: white;
+        border-radius: 5px;
+        border-color: aliceblue;
+      }
+
+      /* ===== Main ===== */
+      .container {
+        background: white;
+        width: 95%;
+        margin: 20px auto;
+        padding: 20px;
+        border-radius: 5px;
+      }
+
+      .title {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+
+      .add-btn {
+        background: blue;
+        color: white;
+        border: none;
+        padding: 7px 12px;
+        border-radius: 4px;
+        cursor: pointer;
+      }
+
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 15px;
+      }
+
+      th,
+      td {
+        border-bottom: 1px solid gray;
+        padding: 10px;
+        text-align: left;
+        font-size: 14px;
+      }
+
+      th {
+        background: whitesmoke;
+      }
+
+      /* ===== Buttons ===== */
+      .btn-edit {
+        background: gold;
+        border: none;
+        padding: 5px 8px;
+        border-radius: 4px;
+        cursor: pointer;
+      }
+
+      .btn-delete {
+        background: red;
+        color: white;
+        border: none;
+        padding: 5px 8px;
+        border-radius: 4px;
+        cursor: pointer;
+      }
+
+      /* ===== Modal ===== */
+      .modal {
+        width: 450px;
+        background: white;
+        margin: 40px auto;
+        border-radius: 5px; 
+        border: 1px solid gray;
+      }
+
+      .modal-header {
+        background: blue;
+        color: white;
+        padding: 10px;
+        display: flex;
+        justify-content: space-between;
+      }
+
+      .modal-body {
+        padding: 15px;
+      }
+
+      .form-row {
+        display: flex;
+        gap: 10px;
+        margin-bottom: 10px;
+      }
+
+      .form-row input,
+      .form-row select {
+        width: 100%;
+        padding: 6px;
+      }
+
+      .sex {
+        margin-top: 5px;
+      }
+
+
+      .modal-footer {
+        text-align: right;
+        padding: 10px;
+      }
+
+      .save {
+        background: green;
+        color: white;
+        border: none;
+        padding: 6px 10px;
+        border-radius: 4px;
+      }
+
+      .cancel {
+        background: gray;
+        border: none;
+        padding: 6px 10px;
+        border-radius: 4px;
+      }
+      .form-group {
+        width: 100%;
+      }
+
+      .form-group label {
+        display: block;
+        font-size: 13px;
+        margin-bottom: 4px;
+      }
+
+      .form-group input,
+      .form-group select {
+        width: 100%;
+        padding: 6px;
+      }
+    </style>
+  </head>
+
+  <body>
+    <!-- HEADER -->
+    <div class="header">
+      <h2>HR Management</h2>
+      <div class="nav">
+        <a href="#">Home</a>
+        <a href="#">Contact</a>
+      </div>
+      <div class="search">
+        <input type="text" placeholder="Search..." />
+        <button>Search</button>
+      </div>
+    </div>
+
+    <!-- EMPLOYEE TABLE -->
+    <div class="container">
+      <div class="title">
+        <h3>Employee</h3>
+        <button class="add-btn">+ Add</button>
+      </div>
+
+      <table>
+        <tr>
+          <th>ID</th>
+          <th>Name</th>
+          <th>Email</th>
+          <th>Phone</th>
+          <th>Position</th>
+          <th>Action</th>
+        </tr>
+
+        <tr>
+          <td>1</td>
+          <td>Fatima Beatriz</td>
+          <td>Fatima Beatriz@gmail.com</td>
+          <td>0985674321</td>
+          <td>Staff</td>
+          <td>
+            <button class="btn-edit">Edit</button>
+            <button class="btn-delete">Delete</button>
+          </td>
+        </tr>
+
+        <tr>
+          <td>2</td>
+          <td>Gabriel Hanna</td>
+          <td>Gabriel Hanna@gmail.com</td>
+          <td>0353674231</td>
+          <td>Staff</td>
+          <td>
+            <button class="btn-edit">Edit</button>
+            <button class="btn-delete">Delete</button>
+          </td>
+        </tr>
+
+        <tr>
+          <td>3</td>
+          <td>Charles Diya</td>
+          <td>Charles Diya@gmail.com</td>
+          <td>0347658833</td>
+          <td>Staff</td>
+          <td>
+            <button class="btn-edit">Edit</button>
+            <button class="btn-delete">Delete</button>
+          </td>
+        </tr>
+        <tr>
+          <td>4</td>
+          <td>Frank Lambo</td>
+          <td>Frank Lambo@gmail.com</td>
+          <td>0975444768</td>
+          <td>Manager</td>
+          <td>
+            <button class="btn-edit">Edit</button>
+            <button class="btn-delete">Delete</button>
+          </td>
+        </tr>
+        <tr>
+          <td>5</td>
+          <td>Louis Tom</td>
+          <td>Louis Tom@gmail.com</td>
+          <td>09876568223</td>
+          <td>Staff</td>
+          <td>
+            <button class="btn-edit">Edit</button>
+            <button class="btn-delete">Delete</button>
+          </td>
+        </tr>
+      </table>
+    </div>
+    <div class="modal">
+      <div class="modal-header">
+        <span>New Employee</span>
+        <span>X</span>
+      </div>
+
+      <div class="modal-body">
+        <!-- Hàng 1 -->
+        <div class="form-row">
+          <div class="form-group">
+            <label>Name</label>
+            <input type="text" />
+          </div>
+
+          <div class="form-group">
+            <label>Email</label>
+            <input type="email" />
+          </div>
+        </div>
+
+        <!-- Hàng 2 -->
+        <div class="form-row">
+          <div class="form-group">
+            <label>Phone</label>
+            <input type="text" />
+          </div>
+
+          <div class="form-group">
+            <label>Position</label>
+            <select>
+              <option>-- Select Position --</option>
+              <option>Staff</option>
+              <option>Manager</option>
+              <option>CEO</option>
+            </select>
+          </div>
+        </div>
+
+        <!-- Sex -->
+    <div class="form-group sex" style="display:flex">
+        <label>Sex</label>
+        <label><input type="radio" name="sex"> Male</label>
+        <label><input type="radio" name="sex"> Female</label>
+     </div>
+
+
+      <div class="modal-footer">
+        <button class="save">Save</button>
+        <button class="cancel">Cancel</button>
+      </div>
+    </div>
+  </body>
+</html>
