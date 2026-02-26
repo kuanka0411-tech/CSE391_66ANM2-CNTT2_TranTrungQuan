@@ -1,0 +1,138 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+        font-family: Arial, Helvetica, sans-serif;
+      }
+
+      body {
+        background-color: #f4f4f4;
+      }
+
+      /* KHUNG NGOÀI */
+      .wrapper {
+        width: 90%;
+        margin: 40px auto;
+        padding: 50px 40px;
+        border-left: 5px solid #6ec1e4;
+        border-bottom: 5px solid #6ec1e4;
+        border-right: 5px solid #6ec1e4;
+        background-color: #f7f7f7;
+      }
+
+      /* TIÊU ĐỀ */
+      .wrapper h1 {
+        text-align: center;
+        font-size: 28px;
+        margin-bottom: 50px;
+        font-weight: 500;
+        color: #333;
+      }
+
+      /* BỐ CỤC 2 CỘT */
+      .content {
+        display: flex;
+        gap: 50px;
+        align-items: flex-start;
+      }
+
+      /* CARD BÊN TRÁI */
+      .card {
+        width: 300px;
+        background: white;
+        padding: 30px;
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+      }
+
+      .card h3 {
+        margin-bottom: 20px;
+        font-weight: 500;
+        color: #333;
+      }
+
+      .card p {
+        font-size: 14px;
+        line-height: 1.6;
+        color: #666;
+        margin-bottom: 15px;
+      }
+
+      .card .author {
+        margin-top: 20px;
+        font-weight: bold;
+        color: #333;
+      }
+
+      .card .role {
+        font-size: 12px;
+        color: #3b82f6;
+      }
+
+      /* BÊN PHẢI */
+      .text-content {
+        flex: 1;
+      }
+
+      .text-content p {
+        margin-bottom: 20px;
+        line-height: 1.7;
+        color: #555;
+        font-size: 14px;
+      }
+
+      .text-content strong {
+        font-weight: bold;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="wrapper">
+      <h1>Wireframe Connects the Underlying<br />Conceptual Structure</h1>
+
+      <div class="content">
+        <!-- LEFT CARD -->
+        <div class="card">
+          <h3>Wireframe Connects the Underlying Conceptual Structure</h3>
+
+          <p>
+            Far far away, behind the word mountains, far from the countries
+            Vokalia and Consonantia, there live the blind texts.
+          </p>
+
+          <div class="author">Louie Jie Mahusay</div>
+          <div class="role">CEO, Founder</div>
+        </div>
+
+        <!-- RIGHT TEXT -->
+        <div class="text-content">
+          <p>
+            Far far away, behind the word mountains, far from the countries
+            Vokalia and Consonantia, there live the blind texts far from the
+            countries Vokalia and Consonantia, there live the blind texts.
+          </p>
+
+          <p>
+            <strong>
+              Far far away, behind the word mountains, far from the countries
+              Vokalia and Consonantia, there live the blind texts far from the
+              countries Vokalia and Consonantia, there live the blind texts.
+            </strong>
+          </p>
+
+          <p>
+            Far far away, behind the word mountains, far from the countries
+            Vokalia and Consonantia, there live the blind texts far from the
+            countries Vokalia and Consonantia, there live the blind texts.
+          </p>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
