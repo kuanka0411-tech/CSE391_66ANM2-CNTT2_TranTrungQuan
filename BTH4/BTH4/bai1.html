@@ -1,0 +1,159 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Bảng Điểm SV</title>
+    <style>
+      body {
+        font-family: Arial, Helvetica, sans-serif;
+        background: aliceblue;
+      }
+      .container {
+        width: 700px;
+        margin: auto;
+        background: white;
+        padding: 20px;
+      }
+      input {
+        padding: 10px;
+        margin: 10px;
+      }
+      button {
+        padding: 10px;
+        cursor: pointer;
+      }
+      table {
+        width: 100%;
+        margin-top: 20px;
+        border-collapse: collapse;
+      }
+      th,
+      td {
+        border: 1px solid black;
+        padding: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h2>Bảng Điểm SV</h2>
+      <input id="name" type="text" placeholder="Họ tên" />
+      <input id="score" type="number" placeholder="Điểm (0-10)" />
+      <button id="btn">Thêm</button>
+
+      <table>
+        <thead>
+          <tr>
+            <th>STT</th>
+            <th>Họ tên</th>
+            <th>Điểm</th>
+            <th>Xếp loại</th>
+            <th>Thao tác</th>
+          </tr>
+        </thead>
+        <tbody id="tablebody"></tbody>
+      </table>
+      <div class="stats" id="stats">Tổng SV: 0 | Điểm TB: 0</div>
+    </div>
+    <script>
+      let students = [];
+
+      const nameInput = document.getElementById("name");
+      const scoreInput = document.getElementById("score");
+      const Btn = document.getElementById("btn");
+      const stats = document.getElementById("stats");
+      const tableBody = document.getElementById("tablebody");
+
+      function getRank(score) {
+        if (score >= 8.5) return "Giỏi";
+        if (score >= 7) return "Khá";
+        if (score >= 5) return "Trung Bình";
+        return "Yếu";
+      }
+
+      function renderTable() {
+        tableBody.innerHTML = "";
+
+        students.forEach((sv, index) => {
+          let rank = getRank(sv.score);
+
+          let rowClass = sv.score < 5 ? "style='background:yellow'" : "";
+
+          tableBody.innerHTML += `
+      <tr ${rowClass}>
+        <td>${index + 1}</td>
+        <td>${sv.name}</td>
+        <td>${sv.score}</td>
+        <td>${rank}</td>
+        <td>
+          <button data-index="${index}">Xóa</button>
+        </td>
+      </tr>
+    `;
+        });
+
+        updateStats();
+      }
+
+      function updateStats() {
+        let total = students.length;
+
+        let sum = 0;
+
+        students.forEach((sv) => {
+          sum += sv.score;
+        });
+
+        let avg = total ? (sum / total).toFixed(2) : 0;
+
+        stats.innerText = `Tổng SV: ${total} | Điểm TB: ${avg}`;
+      }
+
+      function addStudent() {
+        let name = nameInput.value.trim();
+        let score = parseFloat(scoreInput.value);
+
+        if (name === "") {
+          alert("Họ tên không được để trống");
+          return;
+        }
+
+        if (isNaN(score) || score < 0 || score > 10) {
+          alert("Điểm phải từ 0 đến 10");
+          return;
+        }
+
+        students.push({
+          name: name,
+          score: score,
+        });
+
+        renderTable();
+
+        nameInput.value = "";
+        scoreInput.value = "";
+
+        nameInput.focus();
+      }
+
+      Btn.addEventListener("click", addStudent);
+
+      scoreInput.addEventListener("keypress", function (e) {
+        if (e.key === "Enter") {
+          addStudent();
+        }
+      });
+
+      tableBody.addEventListener("click", function (e) {
+        if (e.target.tagName === "BUTTON") {
+          let index = e.target.dataset.index;
+
+          students.splice(index, 1);
+
+          renderTable();
+        }
+      });
+    </script>
+  </body>
+</html>
